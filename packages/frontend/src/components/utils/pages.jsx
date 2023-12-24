@@ -1,6 +1,6 @@
-export const ViewPage = ({ children, name }) => {
+export const ViewPage = ({ children, nameID = null, flex }) => {
     return (
-        <div id={`${ name }`} className='view-page'>
+        <div id={ nameID } className={ `view-page ${ flex && 'display-flex'}` } >
             { children }
         </div>
     )
