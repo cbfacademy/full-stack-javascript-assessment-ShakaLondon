@@ -1,0 +1,55 @@
+/* Align */
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-start {
+    align-items: start;
+}
+
+.align-end {
+    align-items: end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+
+/* Justify */
+
+.justify-start {
+    justify-content: flex-start !important;
+}
+  
+.justify-end {
+    justify-content: flex-end !important;
+}
+  
+.justify-center {
+    justify-content: center !important;
+}
+  
+.justify-between {
+    justify-content: space-between !important;
+}
+  
+.justify-around {
+    justify-content: space-around !important;
+}
+
+
+/* Text Alignment */
+
+.text-start {
+    text-align: start;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-end {
+    text-align: end;
+}
