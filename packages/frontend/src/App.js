@@ -1,10 +1,11 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
+import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Full Stack JavaScript</h1>
-      <p>Welcome to your final assessment 🚀</p>
+    <div className="app">
+      <Outlet />
     </div>
   );
 }
