@@ -1,4 +1,6 @@
 .app {
   text-align: center;
   display: flex;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
