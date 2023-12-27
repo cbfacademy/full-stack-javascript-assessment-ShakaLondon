@@ -3,3 +3,35 @@
 .display-flex {
     display: flex;
 }
+
+.fixed {
+    position: fixed;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+.sticky {
+    position: sticky;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
