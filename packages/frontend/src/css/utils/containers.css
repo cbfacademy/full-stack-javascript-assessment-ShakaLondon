@@ -62,4 +62,5 @@
     margin-left: auto;
     box-sizing: border-box;
     flex: 1 1 auto;
+    flex-wrap: wrap;
 }

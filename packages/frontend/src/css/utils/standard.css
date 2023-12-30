@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.display-inline-flex {
+    display: inline-flex;
+}
+
 .fixed {
     position: fixed;
 }
@@ -27,6 +31,14 @@
     left: 0;
     z-index: 1030;
   }
+
+  .left {
+      left: 0;
+  }
+
+  .right {
+    right: 0;
+}
 
 .flex-column {
     flex-direction: column;
