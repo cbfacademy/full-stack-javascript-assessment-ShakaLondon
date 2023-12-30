@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/navbar';
@@ -10,10 +10,10 @@ const App = () => {
   return (
     <div className="app">
       <Navbar />
-      <Container flex>
+      <Container id='home-view' flex size='size'>
         <Outlet />
         </Container>
-        <Container flex>
+        <Container id='profile-view' flex size='size'>
       <ProfilePage />
       </Container>
     </div>
