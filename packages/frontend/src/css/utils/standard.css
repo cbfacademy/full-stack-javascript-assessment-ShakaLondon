@@ -48,28 +48,10 @@
     flex-direction: row;
 }
 
-.svg-icon {
-    height: 2rem;
-    width: 2rem; 
-    padding: 0rem 0.5rem 0rem;
-    transition: transform 0.3s ease;
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
-.svg-icon:hover {
-    animation: waveAnimation 1s ease;
-  }
-  
-  @keyframes waveAnimation {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-4px);
-    }
-  }
-
-  .svg-link {
-      display: flex;
-      align-self: center;
-      justify-self: center;
-  }
+.rounded {
+    border-radius: 50%;
+}
