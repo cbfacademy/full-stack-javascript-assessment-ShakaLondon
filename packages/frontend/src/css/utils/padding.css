@@ -56,6 +56,62 @@
     padding-bottom: 10rem;
 }
 
+.ps-half {
+    padding-left: 0.5rem;
+}
+
+.ps-1 {
+    padding-left: 1rem;
+}
+
+.ps-2 {
+    padding-left: 2rem;
+}
+
+.ps-3 {
+    padding-left: 4rem;
+}
+
+.ps-4 {
+    padding-left: 6rem;
+}
+
+.ps-5 {
+    padding-left: 8rem;
+}
+
+.ps-6 {
+    padding-left: 10rem;
+}
+
+.pe-half {
+    padding-right: 0.5rem;
+}
+
+.pe-1 {
+    padding-right: 1rem;
+}
+
+.pe-2 {
+    padding-right: 2rem;
+}
+
+.pe-3 {
+    padding-right: 4rem;
+}
+
+.pe-4 {
+    padding-right: 6rem;
+}
+
+.pe-5 {
+    padding-right: 8rem;
+}
+
+.pe-6 {
+    padding-right: 10rem;
+}
+
 .px-half {
     padding: 0rem 0.5rem 0rem;
 }
