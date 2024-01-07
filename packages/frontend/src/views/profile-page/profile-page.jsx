@@ -1,25 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { PrimaryButton } from '../../components/utils/buttons';
-import { Container } from '../../components/utils/containers';
 import { Column, Container, PageContainer } from '../../components/utils/containers';
 import { ViewPage } from '../../components/utils/pages'
-// import { usePathString } from '../../hooks/location-path-hooks';
-// import { useAppDispatch } from '../../hooks/redux-hooks';
-// import { profileOpen } from '../../redux/slices/app-state-slice'
+import { ProfileHeader } from '../../components/profile-page/profile-header'
+import { ProfileFormOne } from '../../components/profile-page/profile-form-one'
 
 const ProfilePage = () => {
     return (
-        <ViewPage nameID='profile-page' flex >
-          <Container flex size='size'>
-            <h>Oops!</h>
-            <p5 className='py-half'>Sorry, an unexpected error has occurred.</p5>
-            <p>
-              {/* <i>{error.statusText || error.message}</i> */}
-            </p>
-            <PrimaryButton classes='bg-grey-one white' link='home' >Go Home</PrimaryButton>
-          </Container>
+        <ViewPage nameID='profile-page' flex classes=''>
           <PageContainer flex  height='40vh' justify='center' align='center'>
+            {/* <Column small={16} med={16} large={16}> */}
+              <ProfileHeader/>
+            {/* </Column> */}
+          </PageContainer>
+          <PageContainer flex height='60vh' justify='center' align='center'>
+            <Column flex classes='bg-grey-one' small={8} med={8} large={8} align='baseline' justify='start'>
+            </Column>
+            <Column classes='' small={8} med={8} large={8} justify='center' align='center'>
+            </Column>
           </PageContainer>
         </ViewPage>
       );
