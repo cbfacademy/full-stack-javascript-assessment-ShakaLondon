@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { PrimaryButton } from '../../components/utils/buttons';
 import { Container } from '../../components/utils/containers';
+import { Column, Container, PageContainer } from '../../components/utils/containers';
 import { ViewPage } from '../../components/utils/pages'
 // import { usePathString } from '../../hooks/location-path-hooks';
 // import { useAppDispatch } from '../../hooks/redux-hooks';
@@ -18,6 +19,8 @@ const ProfilePage = () => {
             </p>
             <PrimaryButton classes='bg-grey-one white' link='home' >Go Home</PrimaryButton>
           </Container>
+          <PageContainer flex  height='40vh' justify='center' align='center'>
+          </PageContainer>
         </ViewPage>
       );
   };
