@@ -1,19 +1,19 @@
-export const Container = ({ children, nameID=null, size=null, height=null, width=null, flex, classes='', align='center', justify='center', text='center' }) => {
+export const Container = ({ children, nameID=null, size=null, height=null, width=null, flex, classes='', align=null, justify=null, text=null }) => {
     return (
         <div 
             id={ nameID } 
-            className={`container${ size ? `-full-${size}` : ''} ${ flex ? 'display-flex' : ''} align-${ align } justify-${ justify } text-${ text } ${classes}`}
+            className={`container container${ size ? `-full-${size}` : ''} ${ flex ? 'display-flex' : ''} ${ align ? `align-${ align }` : ''} ${ justify ? `justify-${ justify }` : ''} ${ text ? `text-${ text }` : ''} ${classes}`}
             style={{ width: width, height: height }}>
             { children }
         </div>
     );
 };
 
-export const Box = ({ children, nameID=null, height=null, width=null, flex, classes='', align='center', justify='center', text='center' }) => {
+export const PageContainer = ({ children, nameID=null, size=null, height=null, width=null, flex, classes='', align=null, justify=null, text=null }) => {
     return (
         <div 
             id={ nameID } 
-            className={`${ flex ? 'display-inline-flex' : ''} align-${ align } justify-${ justify } text-${ text } ${classes}`}
+            className={`page-container container${ size ? `-full-${size}` : ''} ${ flex ? 'display-flex' : ''} ${ align ? `align-${ align }` : ''} ${ justify ? `justify-${ justify }` : ''} ${ text ? `text-${ text }` : ''} ${classes}`}
             style={{ width: width, height: height }}>
             { children }
         </div>
