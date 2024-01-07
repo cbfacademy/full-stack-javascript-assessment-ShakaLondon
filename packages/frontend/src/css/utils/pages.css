@@ -3,4 +3,5 @@
     min-height: 100vh;
     overflow-x: hidden !important;
     overflow-y: hidden !important;
+    flex-direction: column;
 }

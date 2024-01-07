@@ -16,6 +16,28 @@
     align-items: center;
 }
 
+.align-baseline {
+    align-items: baseline;
+}
+
+/* Align-Self */
+
+.align-self-stretch {
+    align-self: stretch;
+}
+
+.align-self-start {
+    align-self: start;
+}
+
+.align-self-end {
+    align-self: end;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
 
 /* Justify */
 
@@ -37,6 +59,10 @@
   
 .justify-around {
     justify-content: space-around !important;
+}
+
+.justify-flex-end {
+    justify-content: flex-end !important;
 }
 
 
