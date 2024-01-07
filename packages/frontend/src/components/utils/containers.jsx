@@ -18,4 +18,12 @@ export const Box = ({ children, nameID=null, height=null, width=null, flex, clas
             { children }
         </div>
     );
+};    return (
+        <div 
+            id={ nameID } 
+            className={`${ flex ? 'display-inline-flex' : ''} col col-small-${ small } col-med-${ med } col-large-${ large } ${ align ? `align-${ align }` : ''} ${ justify ? `justify-${ justify }` : ''} ${ text ? `text-${ text }` : ''} ${classes}`}
+            style={{ height: height }}>
+            { children }
+        </div>
+    );
 };
