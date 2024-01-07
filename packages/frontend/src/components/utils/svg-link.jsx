@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-export const SVGLink = ({ children, link }) => {
+export const SVGLink = ({ children, nameID=null, link }) => {
     return (
-        <Link to={`/${ link }`} className='svg-icon' >
+        <Link id={ nameID } to={`/${ link }`} className='svg-icon-link' >
             { children }
         </Link>
     )
