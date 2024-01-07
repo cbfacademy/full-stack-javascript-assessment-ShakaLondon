@@ -18,7 +18,22 @@ export const Box = ({ children, nameID=null, height=null, width=null, flex, clas
             { children }
         </div>
     );
-};    return (
+};
+
+export const Box = ({ children, nameID=null, height=null, width=null, flex, classes='', align=null, justify=null, text=null, onBoxClicked}) => {
+    return (
+        <div 
+            id={ nameID } 
+            className={`${ flex ? 'display-inline-flex' : ''} ${ align ? `align-${ align }` : ''} ${ justify ? `justify-${ justify }` : ''} ${ text ? `text-${ text }` : ''} ${classes}`}
+            style={{ width: width, height: height }}
+            onClick={ onBoxClicked }>
+            { children }
+        </div>
+    );
+};
+
+export const Column = ({ children, nameID=null, height='100%', small=16, med=16, large=16, flex, classes='', align=null, justify=null, text=null }) => {
+    return (
         <div 
             id={ nameID } 
             className={`${ flex ? 'display-inline-flex' : ''} col col-small-${ small } col-med-${ med } col-large-${ large } ${ align ? `align-${ align }` : ''} ${ justify ? `justify-${ justify }` : ''} ${ text ? `text-${ text }` : ''} ${classes}`}
