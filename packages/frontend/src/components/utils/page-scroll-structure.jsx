@@ -11,10 +11,10 @@ export const PageScrollStructure = ({ children, nameID = null }) => {
     }, [pathString]);
 
     return (
-        <div id={ nameID } className={'container'}>
+        <div id={ nameID } className={'page-scroll-structure'}>
             { children.map ( ( child, index ) => {
                 return (
-            <div key={index} ref={pageViewRef} fullSize>
+            <div key={index} ref={pageViewRef}>
                 { child }
             </div>
                 )

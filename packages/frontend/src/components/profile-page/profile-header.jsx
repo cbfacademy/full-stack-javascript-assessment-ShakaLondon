@@ -15,7 +15,7 @@ export const ProfileHeader = () => {
             </Column>
             <Column nameID='profile-header-col-2' flex small={5} med={5} large={5} justify='end' align='end' classes='pe-3'>
                 <Box flex height='250px' justify='center' align='center'>
-                    <Image src='https://placehold.co/200x200' classes='rounded'/>
+                    <Image src='https://placehold.co/200x200' imgClasses='rounded' align='self-center' justify='center'/>
                 </Box>
             </Column>
         </PageContainer>

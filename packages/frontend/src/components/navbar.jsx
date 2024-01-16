@@ -16,7 +16,7 @@ export const Navbar = () => {
     const menuOpenState = useSelector((state) => state.appState.menuOpen)
 
     return (
-            <PageContainer nameID='nav-bar-cont' flex size='width' height='5rem' justify='between' align='center' classes='fixed-top'>
+            <Container nameID='nav-bar-cont' flex size='width' height='5rem' justify='between' align='center' classes='fixed-top px-2'>
                 <Box nameID='nav-bar-box' flex justify='center' align='center'>
                 { profileOpenState && <SVGLink nameID='circle-arrow-left' link='home' >
                          <CircleArrowLeft className='svg-icon' />
@@ -37,6 +37,6 @@ export const Navbar = () => {
                 </SVGLink> 
                 }
                 </Box>
-            </PageContainer>
+            </Container>
     )
 };

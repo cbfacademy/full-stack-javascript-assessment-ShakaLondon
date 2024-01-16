@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import './App.css';
@@ -11,13 +11,14 @@ import ProfilePage from './views/profile-page/profile-page';
 // import PageScrollStructure from "./components/utils/page-scroll-structure";
 
 const App = () => {
-  const appDispatch = useDispatch()
-  const pathString = usePathString()
+
+  const appDispatch = useDispatch();
+  const pathString = usePathString();
 
   // Callback stores location.pathname and checks pathname has changed and runs this function every time the 
   //pathname updates forcing useEffect to run every time pathname updates
   const setPathString = useCallback(() => { 
-    appDispatch( profileOpen( pathString !== 'profile' ? false : true ) )
+    appDispatch( profileOpen( pathString !== 'profile' ? false : true ) );
     appDispatch( menuOpen( false )) }, [pathString]);
 
 useEffect(() => {
@@ -28,10 +29,10 @@ useEffect(() => {
     <div className="app">
       <Navbar />
       <MenuDrop />
-      <Container nameID='home-view' flex size='size' width='100vw' justify='center' align='center'>
+      <Container nameID='home-view' flex size='size' width='100vw' justify='center' align='center' classes='min-page'>
         <Outlet />
         </Container>
-        <Container nameID='profile-view' flex size='size' width='100vw' justify='center' align='center'>
+        <Container nameID='profile-view' flex size='size' width='100vw' justify='center' align='center' classes='min-page'>
       <ProfilePage />
       </Container>
     </div>
