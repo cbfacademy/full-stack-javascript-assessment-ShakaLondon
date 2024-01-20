@@ -47,3 +47,7 @@ import TriangleDashImage from "../assets/shape-snap/triangle-dash.png"
     SHAPES: shapes
   }
 
+export const getImageName = (dropName) => {
+    console.log(dropName.split('-')[1])
+    return dropName.split('-')[1]
+}

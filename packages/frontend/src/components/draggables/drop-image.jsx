@@ -21,6 +21,7 @@ export const DropImage = memo(({ children, nameID=null, dragItem, getItemSize, g
 
     return (
         <div>
+        { dragItem && getItemSize && <DragImage nameID={ dragItem.name } src={ dragSrc } dragItem={ dragItem } getItemOffset={ getItemOffset } height={ `${getItemSize.height}px` } width={ `${getItemSize.width}px` } classes='absolute' />}
         <BoxRef id={ nameID } height={ height } width={ width } align={ align } justify={ justify } classes={ `shapeSize ${classes}`}>
             <img 
             id={ dragItem.name }

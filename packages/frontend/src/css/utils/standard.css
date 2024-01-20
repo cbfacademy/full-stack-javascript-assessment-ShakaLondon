@@ -24,6 +24,10 @@
     position: sticky;
 }
 
+.absolute {
+    position: absolute;
+}
+
 .sticky-top {
     position: sticky;
     top: 0;
