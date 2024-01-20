@@ -3,4 +3,9 @@
   display: flex;
   overflow-y: hidden;
   overflow-x: hidden;
+  min-width: 400px;
 }
+
+/* .min-page {
+  min-width: 400px;
+} */

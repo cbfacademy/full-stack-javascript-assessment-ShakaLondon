@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router';
 export const usePathString = () => {
     const location = useLocation();
     const path = location.pathname;
-    const pathString = path.slice(1);
+    const pathString = path.split("/").pop()
      
     return pathString;
 };

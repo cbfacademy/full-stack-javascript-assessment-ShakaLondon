@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { DndProvider, useDrag } from 'react-dnd'
@@ -12,18 +12,19 @@ import { menuOpen, profileOpen } from './redux/slices/app-state-slice';
 import ProfilePage from './views/profile-page/profile-page';
 
 const App = () => {
-  const appDispatch = useDispatch()
-  const pathString = usePathString()
+
+  // const appDispatch = useDispatch();
+  // const pathString = usePathString();
 
   // Callback stores location.pathname and checks pathname has changed and runs this function every time the 
   //pathname updates forcing useEffect to run every time pathname updates
-  const setPathString = useCallback(() => { 
-    appDispatch( profileOpen( pathString !== 'profile' ? false : true ) )
-    appDispatch( menuOpen( false )) }, [pathString]);
+//   const setPathString = useCallback(() => { 
+//     appDispatch( profileOpen( pathString !== 'profile' ? false : true ) );
+//     appDispatch( menuOpen( false )) }, [pathString]);
 
-useEffect(() => {
-  setPathString()
-}, [setPathString])
+// useEffect(() => {
+//   setPathString()
+// }, [setPathString])
 
   return (
     <div className="app">
