@@ -6,11 +6,25 @@ import { dragItemTypes } from '../../../hooks/drag-hooks'
 
 
 const ShapeSnap = () => {
+    // const getItemTypesList = async (itemTypes) => {
+    
+    //     const keys = Object.values(itemTypes)
+    //     const typeList = keys.map((shape) => {
+    //         return shape.type
+    //     })
+    //     console.log(typeList)
+
+    //     return typeList
+
+    //   }
 
     const [itemTypes, setItemTypes] = useState( dragItemTypes.SHAPES )
     const [getItemSize, setItemSize] = useState( null )
     // const [itemTypesList, setItemTypesList] = useState('')
 
+    // useEffect(() => {
+    //     setItemTypesList( () => getItemTypesList(itemTypes) )
+    // }, [itemTypes]); 
 
     useEffect(() => {
       const imgWrapper = document.getElementById(`DRAGTRIANGLE`);
@@ -38,6 +52,9 @@ const ShapeSnap = () => {
         <ViewPage nameID='shape-snap-page' flex justify='center'>
             <PageContainerRef nameID='shape-snap-page-cont' size='size' flex justify='center' align='center'>
                 <Container flex justify='center'>
+                    {Object.keys(itemTypes).map((key) => (
+                        <DropImage key={key} getItemSize={ getItemSize } getItemOffset={ getItemOffset } src={ itemTypes[`${key}`].dropSrc } dragItem={ itemTypes[`${key}`] } dragSrc={ itemTypes[`${key}`].path } align='self-center' justify='center'/>
+                    ))}
                 </Container>
             </PageContainerRef>
       </ViewPage>
