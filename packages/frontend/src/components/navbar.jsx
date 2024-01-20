@@ -16,7 +16,7 @@ export const Navbar = () => {
     const menuOpenState = useSelector((state) => state.appState.menuOpen)
 
     return (
-            <Container nameID='nav-bar-cont' flex size='width' height='5rem' justify='between' align='center' classes='fixed-top px-2'>
+            <Container nameID='nav-bar-cont' flex size='width' height='5rem' justify='between' align='center' classes='fixed-top px-1'>
                 <Box nameID='nav-bar-box' flex justify='center' align='center'>
                 { profileOpenState && <SVGLink nameID='circle-arrow-left' link='home' >
                          <CircleArrowLeft className='svg-icon' />

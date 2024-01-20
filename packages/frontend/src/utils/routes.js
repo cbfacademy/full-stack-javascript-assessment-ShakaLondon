@@ -3,6 +3,7 @@ import App from '../App'
 import ErrorPage from '../views/error-page/error-page';
 import LandingPage from '../views/landing-page/landing-page';
 import ProfilePage from '../views/profile-page/profile-page';
+import ShapeSnap from '../views/games/shape-snap/shape-snap';
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
         {
           path: "/profile",
           element: <ProfilePage />,
+        },
+        {
+          path: "/games/shape-snap",
+          element: <ShapeSnap />,
         },
       ],
     },

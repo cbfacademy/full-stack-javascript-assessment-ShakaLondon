@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { DndProvider, useDrag } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 import './App.css';
 import { MenuDrop } from './components/menu-dropdown';
 import { Navbar } from './components/navbar';
@@ -8,7 +10,6 @@ import { Container } from './components/utils/containers';
 import { usePathString } from './hooks/location-path-hooks';
 import { menuOpen, profileOpen } from './redux/slices/app-state-slice';
 import ProfilePage from './views/profile-page/profile-page';
-// import PageScrollStructure from "./components/utils/page-scroll-structure";
 
 const App = () => {
 
@@ -29,12 +30,11 @@ const App = () => {
     <div className="app">
       <Navbar />
       <MenuDrop />
+      <DndProvider backend={HTML5Backend}>
       <Container nameID='home-view' flex size='size' width='100vw' justify='center' align='center' classes='min-page fixed'>
         <Outlet />
         </Container>
-        {/* <Container nameID='profile-view' flex size='size' width='100vw' justify='center' align='center' classes='min-page'>
-      <ProfilePage />
-      </Container> */}
+      </DndProvider>
     </div>
   );
 }
