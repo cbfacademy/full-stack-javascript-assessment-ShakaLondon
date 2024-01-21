@@ -4,8 +4,10 @@ import cors from "cors";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import listEndpoints from "express-list-endpoints";
 import mongoose from "mongoose";
+import objectRouter from "./services/assets/index.js";
 
 import dotenv from 'dotenv'
+import shapeRouter from "./services/assets/shapes/index.js";
 import { catchAllErrorHandler, entryForbiddenMiddleware, notFoundMiddleware } from "./services/utils/errorhandler.js";
 dotenv.config()
 
@@ -36,6 +38,9 @@ client.connect((err) => {
   client.close();
 });
 
+// ROUTES
+app.use("/objects", objectRouter);
+app.use("/shapes", shapeRouter);
 
 // ERROR HANDLERS
 app.use(notFoundMiddleware);
