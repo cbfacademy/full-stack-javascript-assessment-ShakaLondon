@@ -1,4 +1,4 @@
-import { Container, Box, Column, PageContainer } from "../utils/containers";
+import { Box, Column, PageContainer } from "../utils/containers";
 import { Image } from "../utils/image";
 import { Text } from "../utils/text";
 
