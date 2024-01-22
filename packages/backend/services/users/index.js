@@ -2,7 +2,6 @@ import express from "express";
 import createError from "http-errors";
 import { generateJwt, JwtMiddleware } from "../utils/jwt.js";
 import UserModel from "./schema.js";
-// import ReviewModel from "../reviews/schema.js";
 import TokenModel from "../token/schema.js";
 // import UploadModel from "../uploads/schema.js";
 

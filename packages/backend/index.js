@@ -12,6 +12,7 @@ import {
   entryForbiddenMiddleware, 
   notFoundMiddleware } from "./services/utils/errorhandler.js";
 import userRouter from "./services/users/index.js";
+import tokenRouter from "./services/token/index.js";
 dotenv.config()
 
 

@@ -66,10 +66,6 @@ UserSchema.pre("save", async function (done) {
 });
 
 UserSchema.methods.toJSON = function () {
-  // console.log(this)
-  // toJSON  is called every time res send is sent
-
-  // await this.populate(['avatar', 'reviews'])
 
   const userDocument = this;
 
@@ -80,12 +76,8 @@ UserSchema.methods.toJSON = function () {
 
   console.log(docObject, "toJson");
 
-  // const docJSON = docObject.toJSON()
-
   return docObject;
 };
-
-// static: find using credentials
 
 UserSchema.statics.findByCredentials = async function (email, password) {
   console.log(email);
@@ -110,4 +102,4 @@ UserSchema.statics.findByCredentials = async function (email, password) {
   }
 };
 
-export default model("Users", UserSchema); // bounded to "users" collection
+export default model("Users", UserSchema);
