@@ -2,8 +2,20 @@ import { Column, PageContainer } from '../../components/utils/containers';
 import { ViewPage } from '../../components/utils/pages'
 import { ProfileHeader } from '../../components/profile-page/profile-header'
 import { ProfileFormOne } from '../../components/profile-page/profile-form-one'
+import { useDispatch, useSelector } from 'react-redux';
+import { navigateTo } from '../../hooks/location-path-hooks';
+import { profileOpen } from '../../redux/slices/app-state-slice';
 
 const ProfilePage = () => {
+
+  const loggedInState = useSelector((state) => state.userState.loggedIn)
+  const appDispatch = useDispatch()
+
+  if (!loggedInState) { 
+    appDispatch(profileOpen(false))
+    return navigateTo('login')
+  }
+
     return (
         <ViewPage nameID='profile-page' flex classes=''>
           <PageContainer nameID='profile-page-header-cont' flex  height='40vh' justify='center' align='center'>
