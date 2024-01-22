@@ -7,6 +7,7 @@ import { ReactComponent as ArrowLeft } from '../assets/svg/arrow-left.svg'
 import { menuOpen, profileOpen } from "../redux/slices/app-state-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { SVGLink } from "./utils/svg-link";
+import { usePathString } from "../hooks/location-path-hooks";
 
 export const Navbar = () => {
 
@@ -14,26 +15,31 @@ export const Navbar = () => {
 
     const profileOpenState = useSelector((state) => state.appState.profileOpen)
     const menuOpenState = useSelector((state) => state.appState.menuOpen)
+    const pathname = usePathString()
 
     return (
             <Container nameID='nav-bar-cont' flex size='width' height='5rem' justify='between' align='center' classes='fixed-top px-1'>
                 <Box nameID='nav-bar-box' flex justify='center' align='center'>
-                { profileOpenState && <SVGLink nameID='circle-arrow-left' link='home' >
-                         <CircleArrowLeft className='svg-icon' />
+                {( pathname === 'register-child' ) && <SVGLink nameID='circle-arrow-left' link='register' classes='svg-link-background button align-center rounded' height='2rem' width='1rem'>
+                         <ArrowLeft height="1rem" width="1rem" />
+                </SVGLink>
+                }
+                { profileOpenState && <SVGLink nameID='circle-arrow-left' link='home' classes='svg-link-background button align-center rounded' height='2rem' width='1rem'>
+                         <ArrowLeft height="1rem" width="1rem" onClick={ () => appDispatch( profileOpen(false) )} />
                 </SVGLink>
                 }
                 </Box>
                 <Box flex justify='end' align='center'>
                 { !profileOpenState  && !menuOpenState && <SVGLink nameID='profile-circle' link='profile' >
-                        <ProfileCircle height='5rem' width='5rem' className='svg-icon' />
+                        <ProfileCircle height='5rem' width='5rem' className='svg-icon' onClick={ () => appDispatch( profileOpen(true) )} />
                     </SVGLink>
                 }
                 { !profileOpenState && !menuOpenState  && <SVGLink nameID='menu-bars' >
-                    <MenuBars className='svg-icon' onClick={ () => appDispatch( menuOpen(true) )} />
+                    <MenuBars className='svg-icon' onClick={ () => appDispatch( menuOpen() )} />
                 </SVGLink>
                 }
                 { !profileOpenState && menuOpenState  && <SVGLink nameID='cross-exit' >
-                    <CrossExit className='svg-icon' onClick={ () => appDispatch( menuOpen(false))} />
+                    <CrossExit className='svg-icon' onClick={ () => appDispatch( menuOpen())} />
                 </SVGLink> 
                 }
                 </Box>
