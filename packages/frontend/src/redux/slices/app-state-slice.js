@@ -3,17 +3,25 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     menuOpen: false,
     profileOpen: false,
+    loading: false,
+    error: false,
   }
   
   export const appStateSlice = createSlice({
-    name: 'users',
+    name: 'app',
     initialState,
     reducers: {
       menuOpen: ( state, action ) => {
-        state.menuOpen = action.payload
+        state.menuOpen = !state.menuOpen
       },
       profileOpen: ( state, action ) => {
         state.profileOpen = action.payload
+      },
+      loading: ( state ) => {
+        state.loading = !state.loading
+      },
+      error: ( state ) => {
+        state.error = !state.error
       },
     },
     // extraReducers: (builder) => {
@@ -21,6 +29,7 @@ const initialState = {
     //   })
     // },
   })
+
 
 export const { menuOpen, profileOpen } = appStateSlice.actions 
 
