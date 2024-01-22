@@ -12,11 +12,6 @@ const UsersImageSchema = new Schema(
       type: String,
       required: true,
     },
-    sourceID: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Objects",
-      // required: true,
-    },
     imageType: {
       type: String,
       required: true,
