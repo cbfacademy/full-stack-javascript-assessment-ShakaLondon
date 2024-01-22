@@ -87,7 +87,6 @@ objectRouter.post(
             new: true,
             runValidators: true,
           })
-          console.log(shapeObject)
                   await ObjectModel.findByIdAndUpdate( shapeObject.imageID, { imagePath: req.file.path }, {
                     new: true,
                     runValidators: true,

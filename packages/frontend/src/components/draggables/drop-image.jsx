@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 import { useDrop } from 'react-dnd'
 import { BoxRef } from "../utils/containers";
 import { DragImage } from './drag-image';

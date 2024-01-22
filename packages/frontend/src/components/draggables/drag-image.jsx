@@ -1,7 +1,5 @@
-import { memo, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDrag } from 'react-dnd'
-import { Box } from "../utils/containers";
-import { getEmptyImage } from 'react-dnd-html5-backend';
 
 export const DragImage = ({ children, nameID=null, dragItem, getItemOffset, src='', alt='', height=null, width=null, classes='', imgClasses='', align=null, justify=null }) => {
 
@@ -18,9 +16,6 @@ export const DragImage = ({ children, nameID=null, dragItem, getItemOffset, src=
         }),
         end: ( item, monitor ) => {
             const dropResult = monitor.getDropResult();
-            console.log(monitor.getDifferenceFromInitialOffset())
-            // setItemOffset(() => monitor.getDifferenceFromInitialOffset())
-            
             const clientOffset = monitor.getSourceClientOffset()
             if (dropResult === null) {
               getItemOffset(clientOffset.x, clientOffset.y, item.name)
@@ -50,7 +45,6 @@ export const DragImage = ({ children, nameID=null, dragItem, getItemOffset, src=
 
     return (
         <>
-        {/* <Box id={ nameID } height={ height } width={ width } classes={ ` ${classes} ${ align ? `align-${ align }` : ''} ${ justify ? `justify-${ justify }` : ''}`}> */}
             { ( dropComplete ) || ( !isDragging ) && 
             <img
             id={ nameID } 
