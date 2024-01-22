@@ -29,6 +29,10 @@ const UserSchema = new Schema(
       type: Date,
       required: true,
     },
+    childDateOfBirth: {
+        type: Date,
+        required: true,
+    },
     email: {
       type: String,
       required: true,

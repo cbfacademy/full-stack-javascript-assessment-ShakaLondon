@@ -3,6 +3,8 @@ import createError from "http-errors";
 import { generateJwt, JwtMiddleware } from "../utils/jwt.js";
 import UserModel from "./schema.js";
 import TokenModel from "../token/schema.js";
+import UsersImageModel from "../assets/user-image/users-schema.js";
+import ObjectsModel from "../assets/schema.js";
 // import UploadModel from "../uploads/schema.js";
 
 // import validations from "../../utils/validation/index.js";
@@ -14,22 +16,19 @@ import TokenModel from "../token/schema.js";
 const userRouter = express.Router();
 
 // LOGIN ✅
-userRouter.post("/me", async (req, res, next) => {
+userRouter.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    console.log(email + password + "Here babe");
-
     if (!email || !password) {
-      return res.status(500).send({ message: "User Not found." });
+      return res.status(500).send({ message: "please enter a valiid username and password" });
     }
 
     const user = await UserModel.findByCredentials(email, password);
 
-    console.log(user);
-
     if (!user) {
       return res.status(401).send({
+        status: 401,
         accessToken: null,
         message: "Invalid Credentials!",
       });
@@ -61,39 +60,39 @@ userRouter.post(
   async (req, res, next) => {
     try {
       const userObj = req.body;
-      console.log(userObj);
 
       const user = await new UserModel(req.body).save();
-      // delete user._doc.password
 
-      console.log(user + "after database send");
+      const { imageName, imagePath, imageType, _id: imageID } = await new UsersImageModel({
+        imageName: `${user.name}-${user.surname}-${user._id}`,
+        imagePath: `https://ui-avatars.com/api/?name=${user.name}+${user.surname}`,
+        imageType: "Users",
+      }).save();
 
-      const { _id } = await new UploadModel({
-        avatar: `https://ui-avatars.com/api/?name=${user.name}+${user.surname}`,
-        cover:
-          "https://res.cloudinary.com/shakalondon/image/upload/v1636930471/default-header.jpg",
-        profileID: user._id,
+      const { _id: objectID } = await new ObjectsModel({
+        imageName,
+        imagePath,
+        imageType,
+        sourceID: imageID,
       }).save();
 
       const updatedUser = await UserModel.findByIdAndUpdate(
         user._id,
-        { avatar: _id },
+        { avatar: objectID },
         {
-          new: true, // to use existing record n
+          new: true, 
           runValidators: true,
         }
       );
 
-      console.log(updatedUser + "update");
-
-      await updatedUser.populate(["gameRecords", "avatar"]);
+      await updatedUser.populate(["gameRecords", "avatar", "avatar.sourceID"]);
 
       const token = await generateJwt({ id: user._id });
 
       const refreshToken = await TokenModel.createToken(user);
 
       res.status(200).send({
-        updatedUser,
+        user: updatedUser,
         accessToken: token,
         refreshToken: refreshToken,
       });
@@ -114,32 +113,30 @@ userRouter.post(
 //   }
 // });
 
-// // UPDATE USER ✅
-// userRouter.put(
-//   "/me/update",
-//   JwtMiddleware,
-//   // userOnly,
-//   async (req, res, next) => {
-//     try {
-//       const userId = req.user._id;
+// UPDATE USER ✅
+userRouter.put(
+  "/me/update",
+  JwtMiddleware,
+  // userOnly,
+  async (req, res, next) => {
+    try {
+      const userId = req.user._id;
 
-//       const updatedUser = await UserModel.findByIdAndUpdate(userId, req.body, {
-//         new: true, // to use existing record n
-//         runValidators: true,
-//       });
+      const updatedUser = await UserModel.findByIdAndUpdate(userId, req.body, {
+        new: true,
+        runValidators: true,
+      });
 
-//       console.log(updatedUser + "updated");
-
-//       if (updatedUser) {
-//         res.status(200).send(updatedUser);
-//       } else {
-//         next(createError(404, `User with _id ${userId} not found!`));
-//       }
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-// );
+      if (updatedUser) {
+        res.status(200).send(updatedUser);
+      } else {
+        next(createError(404, `User with _id ${userId} not found!`));
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 // // EDIT ONE REVIEW FOR USER
 // userRouter.put(
