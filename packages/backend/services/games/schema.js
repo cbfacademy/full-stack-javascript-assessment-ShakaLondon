@@ -9,18 +9,15 @@ const GamesSchema = new Schema(
       type: String,
       required: true,
     },
-    attempts: {
-      type: Array,
+    description: {
+      type: String,
       required: true,
     },
-    userID: {
+    gameAssets: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Users",
-    },
-    highestScore: {
-        type: Object,
-        required: true,
-    },
+      required: true,
+      ref: "Assets",
+  }],
   },
   {
     timestamps: true, // adding createdAt and modifiedAt automatically
