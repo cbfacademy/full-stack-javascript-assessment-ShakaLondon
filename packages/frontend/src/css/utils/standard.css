@@ -17,7 +17,7 @@
     top: 0;
     right: 0;
     left: 0;
-    z-index: 1030;
+    z-index: 101;
   }
 
 .sticky {
@@ -33,7 +33,7 @@
     top: 0;
     right: 0;
     left: 0;
-    z-index: 1030;
+    z-index: 101;
   }
 
   .left {

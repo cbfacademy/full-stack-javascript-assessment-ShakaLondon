@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom";
 
-export const SVGLink = ({ children, nameID=null, link, classes, width=null, height=null }) => {
+export const SVGLink = ({ children, nameID=null, link=null, classes, width=null, height=null, click }) => {
     return (
-        <>
-        {
-        link ?
-        <Link id={ nameID } to={ `/${ link }` } className={`svg-icon-link ${ classes } display-flex justify-center`} style={{ height: height, width: width }}>
+        <Link id={ nameID } to={ link ? `${ link }` : '#' } className={`svg-icon-link ${ classes } display-flex justify-center`} style={{ height: height, width: width }} onClick={ click }>
             { children }
         </Link> 
-        : <div id={ nameID } className={`svg-icon-link ${ classes } display-flex justify-center`} style={{ height: height, width: width }} >
-            { children }
-        </div>
-    }
-    </>
     )
 };

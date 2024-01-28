@@ -11,34 +11,35 @@ import { usePathString } from "../hooks/location-path-hooks";
 
 export const Navbar = () => {
 
-    const appDispatch = useDispatch()
-
+    
     const profileOpenState = useSelector((state) => state.appState.profileOpen)
     const menuOpenState = useSelector((state) => state.appState.menuOpen)
-    const pathname = usePathString()
+    // const pathname = usePathString()
+
+    const appDispatch = useDispatch()
 
     return (
             <Container nameID='nav-bar-cont' flex size='width' height='5rem' justify='between' align='center' classes='fixed-top px-1'>
                 <Box nameID='nav-bar-box' flex justify='center' align='center'>
-                {( pathname === 'register-child' ) && <SVGLink nameID='circle-arrow-left' link='register' classes='svg-link-background button align-center rounded' height='2rem' width='1rem'>
+                {/* {( pathname === 'register-child' ) && <SVGLink nameID='circle-arrow-left-register' link='register' classes='svg-link-background button align-center rounded' height='2rem' width='1rem'>
                          <ArrowLeft height="1rem" width="1rem" />
                 </SVGLink>
-                }
-                { profileOpenState && <SVGLink nameID='circle-arrow-left' link='home' classes='svg-link-background button align-center rounded' height='2rem' width='1rem'>
-                         <ArrowLeft height="1rem" width="1rem" onClick={ () => appDispatch( profileOpen(false) )} />
+                } */}
+                { profileOpenState && <SVGLink nameID='circle-arrow-left-profile' link='home' classes='svg-link-background button align-center rounded' height='2rem' width='1rem' click={ () => appDispatch( profileOpen(false) )} >
+                         <ArrowLeft height="1rem" width="1rem" className='svg-icon' />
                 </SVGLink>
                 }
                 </Box>
                 <Box flex justify='end' align='center'>
-                { !profileOpenState  && !menuOpenState && <SVGLink nameID='profile-circle' link='profile' >
-                        <ProfileCircle height='5rem' width='5rem' className='svg-icon' onClick={ () => appDispatch( profileOpen(true) )} />
+                { !profileOpenState  && !menuOpenState && <SVGLink nameID='profile-circle' link='profile'  click={ () => appDispatch( profileOpen(true) )} >
+                        <ProfileCircle height='5rem' width='5rem' className='svg-icon'/>
                     </SVGLink>
                 }
-                { !profileOpenState && !menuOpenState  && <SVGLink nameID='menu-bars' >
+                { !menuOpenState  && <SVGLink nameID='menu-bars' >
                     <MenuBars className='svg-icon' onClick={ () => appDispatch( menuOpen() )} />
                 </SVGLink>
                 }
-                { !profileOpenState && menuOpenState  && <SVGLink nameID='cross-exit' >
+                {  menuOpenState  && <SVGLink nameID='cross-exit' >
                     <CrossExit className='svg-icon' onClick={ () => appDispatch( menuOpen())} />
                 </SVGLink> 
                 }
