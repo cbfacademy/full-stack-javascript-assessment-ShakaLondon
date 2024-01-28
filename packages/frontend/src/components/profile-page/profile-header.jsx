@@ -1,12 +1,11 @@
-import { Box, Column, PageContainer } from "../utils/containers";
+import { Box, Column, Container } from "../utils/containers";
 import { Image } from "../utils/image";
 import { Text } from "../utils/text";
 
 export const ProfileHeader = () => {
     return (
-        <PageContainer nameID='profile-header' flex size='size' justify='center' align='center'>
-            {/* <Box flex>
-            </Box> */}
+        <Container nameID='profile-header' flex size='size' justify='center' align='center'>
+
             <Column nameID='profile-header-col-1' flex small={11} med={11} large={11} justify='end' align='start' classes='ps-3'>
                 <Box flex height='250px' classes='flex-column' align='start' justify='center'>
                     <Text size='h3'>Child's Name</Text>
@@ -18,6 +17,6 @@ export const ProfileHeader = () => {
                     <Image src='https://placehold.co/200x200' imgClasses='rounded' align='self-center' justify='center'/>
                 </Box>
             </Column>
-        </PageContainer>
+        </Container>
     )
 };
