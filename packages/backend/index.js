@@ -5,14 +5,16 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 import listEndpoints from "express-list-endpoints";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
-import objectRouter from "./services/assets/index.js";
-import shapeRouter from "./services/assets/shapes/index.js";
+import assetsRouter from "./services/assets/index.js";
+// import gameAssetsRouter from "./services/assets/game-assets/index.js";
 import { 
   catchAllErrorHandler, 
   entryForbiddenMiddleware, 
   notFoundMiddleware } from "./services/utils/errorhandler.js";
 import userRouter from "./services/users/index.js";
 import tokenRouter from "./services/token/index.js";
+import gamesRouter from "./services/games/index.js";
+import userGamesRouter from "./services/user-games/index.js";
 dotenv.config()
 
 
@@ -43,10 +45,11 @@ client.connect((err) => {
 });
 
 // ROUTES
-app.use("/objects", objectRouter);
-app.use("/shapes", shapeRouter);
+app.use("/assets", assetsRouter);
 app.use("/users", userRouter);
 app.use("/tokens", tokenRouter);
+app.use("/games", gamesRouter);
+app.use("/user-games", userGamesRouter);
 
 // ERROR HANDLERS
 app.use(notFoundMiddleware);

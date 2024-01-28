@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const ShapesSchema = new Schema(
+const GameAssetsSchema = new Schema(
   {
     imageName: {
       type: String,
@@ -14,29 +14,16 @@ const ShapesSchema = new Schema(
     },
     imageID: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Objects",
+      ref: "Assets",
     },
-    imageType: {
+    imageTag: {
       type: String,
       required: true,
     },
-    dragSourcePath: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Shapes",
-    },
-    dropSourcePath: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Shapes",
-    },
-    dragLocation: {
-      type: String,
-      // required: true,
-    }
-
   },
   {
     timestamps: true, // adding createdAt and modifiedAt automatically
   }
 );
 
-export default model("Shapes", ShapesSchema);
+export default model("GameAssets", GameAssetsSchema);
