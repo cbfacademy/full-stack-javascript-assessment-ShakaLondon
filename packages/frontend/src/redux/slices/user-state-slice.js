@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import userAuth from '../../services/user/user-auth'
 import tokenService from '../../services/axios/token-service'
 import { navigateTo } from '../../hooks/location-path-hooks'
+import { getCurrentGame } from './game-status-slice'
 
 const initialState = {
     user: {
@@ -61,6 +62,13 @@ export const checkCredentials = createAsyncThunk(
         state.verified = false
         state.loggedIn = false
       },
+      setUserGameRecords: ( state, action ) => {
+        state.user.gameRecords = state.user.gameRecords.splice(1, 0, action.payload);
+      },
+      updateUserGameRecords : ( state, action ) => {
+        const existingRecordIndex = state.user.gameRecords.findIndex(game => game._id === action.payload.gameID)
+        state.user.gameRecords = state.user.gameRecords.splice(existingRecordIndex, 1, { ...state.user.gameRecords[existingRecordIndex], gameAssets: action.payload });
+      }
     },
     extraReducers: (builder) => {
       builder.addCase(userLogin.fulfilled, (state, action) => {
@@ -86,7 +94,7 @@ export const checkCredentials = createAsyncThunk(
     },
   })
 
-export const { logout } = userSlice.actions 
+export const { logout, setUserGameRecords, updateUserGameRecords } = userSlice.actions 
 
 // export const getMenuState = (state) => state.appState.menuOpen
 // export const getProfileState = (state) => state.appState.profileOpen

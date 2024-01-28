@@ -6,6 +6,7 @@ import { dragItemTypes } from '../../../hooks/drag-hooks'
 import { getCurrentGame, updateGameRecords } from "../../../redux/slices/game-status-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { loading } from "../../../redux/slices/app-state-slice";
+import { CustomDragLayer } from "../../../components/draggables/custom-drag-layer";
 
 
 const ShapeSnap = () => {
@@ -63,6 +64,7 @@ const ShapeSnap = () => {
                         console.log(item),
                         <DropImage key={`${item.imagePath}-${key}`} getItemOffset={ getItemOffset } dropItem={ item } dragItem={ item.dragSourcePath } dragSrc={ item.dragSourcePath.imagePath } getItemSize={ getItemSize } itemSize={ itemSize } align='self-center' justify='center'/>
                     ))}
+                <CustomDragLayer itemSize={ itemSize } />
                 </Container>
             </PageContainerRef>
       </ViewPage>
