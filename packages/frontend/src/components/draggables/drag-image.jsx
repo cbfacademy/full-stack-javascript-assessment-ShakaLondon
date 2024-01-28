@@ -1,58 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDrag } from 'react-dnd'
+import { getEmptyImage } from 'react-dnd-html5-backend';
 
 export const DragImage = ({ children, nameID=null, dragItem, getItemOffset, src='', alt='', height=null, width=null, classes='', imgClasses='', align=null, justify=null }) => {
 
-    const [itemDropped, setItemDropped] = useState( null );
+    const [itemDropped, setItemDropped] = useState( false );
     const [itemOffset, setItemOffset] = useState( null );
     
-    const [{diffOffset, isDragging, dropComplete, check}, drag] = useDrag(() => ({
-        type: dragItem.type,
+    const [{ isDragging }, drag, dragPreview] = useDrag(() => ({
+        type: dragItem.imageTag,
         item: dragItem,
         collect: monitor => ({
           isDragging: !!monitor.isDragging(),
           dropComplete: !!monitor.getDropResult(),
-          diffOffset: monitor.getDifferenceFromInitialOffset(),
+          didDrop: monitor.didDrop(),
         }),
         end: ( item, monitor ) => {
             const dropResult = monitor.getDropResult();
             const clientOffset = monitor.getSourceClientOffset()
+            console.log(item, clientOffset)
             if (dropResult === null) {
-              getItemOffset(clientOffset.x, clientOffset.y, item.name)
+              getItemOffset(clientOffset.x, clientOffset.y, item._id)
             }
+            console.log(dropResult)
             dropResult ? setItemDropped(() => true) : setItemDropped(() => false)
         }
       }),
       [dragItem]);
 
-      const getItemStyles = ((dragItem, diffOffset) => {
+      useEffect(() => {
+        dragPreview(getEmptyImage(), { captureDraggingState: true })
+      }, [isDragging])
 
-        const transform = diffOffset ? diffOffset : { x:0, y:0 }
+      const getItemStyles = ((dragItem, isDragging) => {
+
         return { 
-          top: dragItem.top,
-          left: dragItem.left,
+          top: dragItem.dragLocation.top,
+          left: dragItem.dragLocation.left,
           height: height, 
           width: width, 
-          transform: `translate(${transform.x}px, ${transform.y}px)`,
+          opacity: isDragging ? 0 : 1,
           cursor: 'move',
           zIndex: 999 
       }
       })
 
-      if (isDragging) {
-        return <div ref={drag} />
-      }
-
     return (
         <>
-            { ( dropComplete ) || ( !isDragging ) && 
+            { !itemDropped && 
             <img
             id={ nameID } 
             src={ src } 
             alt={ alt } 
             className={ imgClasses + 'absolute' } 
             ref={ drag }
-            style={getItemStyles(dragItem, diffOffset)} />
+            style={getItemStyles(dragItem, isDragging)} />
              } 
         </>
     );
