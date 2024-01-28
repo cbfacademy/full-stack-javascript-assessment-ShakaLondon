@@ -1,5 +1,5 @@
 import { PrimaryButton } from '../../components/utils/buttons';
-import { Container, PageContainer } from '../../components/utils/containers';
+import { PageContainer } from '../../components/utils/containers';
 import { ViewPage } from '../../components/utils/pages'
 
 const ErrorPage = () => {
@@ -11,7 +11,7 @@ const ErrorPage = () => {
             <p>
               {/* <i>{error.statusText || error.message}</i> */}
             </p>
-            <PrimaryButton nameID='error-page-btn' classes='bg-grey-one white' link='home' >Go Home</PrimaryButton>
+            <PrimaryButton nameID='error-page-btn' link='home' >Go Home</PrimaryButton>
           </PageContainer>
         </ViewPage>
       );

@@ -1,0 +1,78 @@
+form {
+    width: 100%;
+    min-width: 400px;
+    max-width: 8rem;
+}
+
+.input-text {
+    height: 1.5rem;
+    width: 100%;
+    border-color: transparent;
+    border-width: 0;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+}
+
+.input-text:focus {
+    border-color: transparent;
+    border-width: 0;
+    outline: none;
+}
+
+.input-text-box {
+    padding: 0.5rem 1rem 0.25rem;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: white;
+    height: 60px;
+    border-radius: 0.25rem;
+    border-color: #e2e8f0;
+    border-width: 1px;
+    border-style: solid;
+}
+
+input[type="submit" i] {
+    background-color: #222222;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: 900;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0.2rem solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type="submit" i]:hover, input[type="submit" i]:focus {
+    text-decoration: none;
+    background-color: #e2e8f0;
+    color: #222222 !important;
+  }
+  
+  input[type="submit" i]:focus, input[type="submit" i].focus {
+    outline: 0;
+  }
+
+  input[type="submit" i]:hover, input[type="submit" i].hover {
+    outline: 0;
+    border: 0.2rem solid #000;
+    background-color: #e2e8f0;
+    color: #222222 !important;
+  }
+  
+  input[type="submit" i].disabled, input[type="submit" i]:disabled {
+    opacity: 0.65;
+  }
+  
+  input[type="submit" i]:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }

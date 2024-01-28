@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const UsersImageSchema = new Schema(
+const GameAssetsSchema = new Schema(
   {
     imageName: {
       type: String,
@@ -12,15 +12,13 @@ const UsersImageSchema = new Schema(
       type: String,
       required: true,
     },
-    sourceID: {
+    imageID: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Objects",
-      // required: true,
+      ref: "Assets",
     },
-    imageType: {
+    imageTag: {
       type: String,
       required: true,
-      enum: ["Shapes", "Letters", "Users"],
     },
   },
   {
@@ -28,4 +26,4 @@ const UsersImageSchema = new Schema(
   }
 );
 
-export default model("UserImage", UsersImageSchema);
+export default model("GameAssets", GameAssetsSchema);

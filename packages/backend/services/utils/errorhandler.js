@@ -13,7 +13,6 @@ export const notFoundMiddleware = (err, req, res, next) => {
   export const entryForbiddenMiddleware = (err, req, res, next) => {
     if (err.status === 400) {
       res.status(400).send(err.errorsList);
-      // ERRORS LIST FOUND IN INDEX POST REQUEST
     } else {
       next(err);
     }
@@ -21,6 +20,5 @@ export const notFoundMiddleware = (err, req, res, next) => {
   
   //  ALL OTHER ERRORS END HERE
   export const catchAllErrorHandler = (err, req, res, next) => {
-    console.log(err);
     res.status(500).send("Generic Server Error");
   };

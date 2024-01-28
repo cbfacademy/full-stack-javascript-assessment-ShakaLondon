@@ -29,13 +29,17 @@ const UserSchema = new Schema(
       type: Date,
       required: true,
     },
+    childDateOfBirth: {
+        type: Date,
+        required: true,
+    },
     email: {
       type: String,
       required: true,
     },
     avatar: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Objects",
+      ref: "Assets",
       // default: "https://ui-avatars.com/api/?name=Unnamed+User",
     },
     role: {
@@ -47,7 +51,7 @@ const UserSchema = new Schema(
     gameRecords: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Games",
+        ref: "UserGames",
       },
     ],
   },
@@ -74,24 +78,18 @@ UserSchema.methods.toJSON = function () {
   delete docObject.password;
   delete docObject.__v;
 
-  console.log(docObject, "toJson");
-
   return docObject;
 };
 
 UserSchema.statics.findByCredentials = async function (email, password) {
-  console.log(email);
 
   const userDocument = this;
 
   const user = await userDocument.findOne({ email });
 
-  console.log(user, password, email);
-
   if (user) {
     const userVerified = await bcrypt.compare(password, user.password);
 
-    console.log(userVerified, "userFound");
     if (userVerified) {
       return user;
     } else {

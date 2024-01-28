@@ -4,6 +4,7 @@ import ErrorPage from '../views/error-page/error-page';
 import LandingPage from '../views/landing-page/landing-page';
 import ProfilePage from '../views/profile-page/profile-page';
 import ShapeSnap from '../views/games/shape-snap/shape-snap';
+import UserPage from '../views/login-page';
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,18 @@ export const router = createBrowserRouter([
         {
           path: "/home",
           element: <LandingPage />,
+        },
+        {
+          path: "/login",
+          element: <UserPage />,
+        },
+        {
+          path: "/register",
+          element: <UserPage />,
+        },
+        {
+          path: "/register-child",
+          element: <UserPage />,
         },
         {
           path: "/profile",
