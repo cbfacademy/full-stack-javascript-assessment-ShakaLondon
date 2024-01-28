@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { PageContainer } from '../../components/utils/containers';
-import { FormGroup, FormFloatingInput, FormInput } from '../../components/utils/form';
-import { PrimaryButton } from '../../components/utils/buttons';
+import { PageContainer } from '../utils/containers';
+import { FormGroup, FormFloatingInput, FormInput } from '../utils/form';
+import { PrimaryButton } from '../utils/buttons';
 
 const LoginPage = ({ handleChange, getUser, handleSubmit }) => {
 

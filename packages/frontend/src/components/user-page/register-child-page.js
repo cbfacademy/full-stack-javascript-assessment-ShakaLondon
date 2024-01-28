@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { PageContainer } from '../../components/utils/containers';
-import { FormGroup, FormFloatingInput, FormInput } from '../../components/utils/form';
+import { PageContainer } from '../utils/containers';
+import { FormGroup, FormFloatingInput, FormInput } from '../utils/form';
 import { navigateTo } from '../../hooks/location-path-hooks';
 import { profileOpen } from '../../redux/slices/app-state-slice';
 

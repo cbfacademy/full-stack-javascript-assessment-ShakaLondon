@@ -1,5 +1,5 @@
-import authHeader from "../header.js";
-import api from "../api.js";
+import authHeader from "../axios/header.js";
+import api from "../axios/api.js";
 
 const editUser = (userUpdate) => {
   return api.put("users/login/update", userUpdate, { headers: authHeader() });
@@ -10,12 +10,6 @@ const editAvatar = (userUpdateImage) => {
     headers: authHeader(),
   });
 };
-
-// const editCover = (userUpdateCover) => {
-//   return api.post("image/upload/cover", userUpdateCover, {
-//     headers: authHeader(),
-//   });
-// };
 
 const userData = {
   editUser,
