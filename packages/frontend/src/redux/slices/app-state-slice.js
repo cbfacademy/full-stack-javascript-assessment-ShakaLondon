@@ -17,8 +17,8 @@ const initialState = {
       profileOpen: ( state, action ) => {
         state.profileOpen = action.payload
       },
-      loading: ( state ) => {
-        state.loading = !state.loading
+      loading: ( state, action ) => {
+        state.loading = action.payload
       },
       error: ( state ) => {
         state.error = !state.error
@@ -31,7 +31,7 @@ const initialState = {
   })
 
 
-export const { menuOpen, profileOpen } = appStateSlice.actions 
+export const { menuOpen, profileOpen, loading, error } = appStateSlice.actions 
 
 export const getMenuState = (state) => state.appState.menuOpen
 export const getProfileState = (state) => state.appState.profileOpen

@@ -4,7 +4,7 @@ import appStateSlice from './slices/app-state-slice'
 import { thunk } from 'redux-thunk'
 import storageSession from 'redux-persist/lib/storage'
 import userStateSlice from './slices/user-state-slice'
-import shapeSnapStateSlice from './slices/shape-snap-slice'
+import gameStateSlice from './slices/game-status-slice'
 
 function configureAppStore( preloadedState ) {
     const persistConfig = {
@@ -15,7 +15,7 @@ function configureAppStore( preloadedState ) {
     const combinedReducer = combineReducers({ 
       appState: appStateSlice, 
       userState: userStateSlice,
-      shapeSnapState: shapeSnapStateSlice
+      gameState: gameStateSlice,
     })
   
     const persistedReducer = persistReducer(persistConfig, combinedReducer)

@@ -4,7 +4,8 @@ import ErrorPage from '../views/error-page/error-page';
 import LandingPage from '../views/landing-page/landing-page';
 import ProfilePage from '../views/profile-page/profile-page';
 import ShapeSnap from '../views/games/shape-snap/shape-snap';
-import UserPage from '../views/login-page';
+import UserPage from '../views/user-page/user-page';
+import { Navbar } from '../components/navbar';
 
 export const router = createBrowserRouter([
     {
@@ -13,31 +14,31 @@ export const router = createBrowserRouter([
       errorElement: <ErrorPage />,
       children: [
         {
-          path: "/",
+          path: "",
           element: <LandingPage />,
         },
         {
-          path: "/home",
+          path: "home",
           element: <LandingPage />,
         },
         {
-          path: "/login",
+          path: "login",
           element: <UserPage />,
         },
         {
-          path: "/register",
+          path: "register",
           element: <UserPage />,
         },
         {
-          path: "/register-child",
+          path: "register-child",
           element: <UserPage />,
         },
         {
-          path: "/profile",
+          path: "profile",
           element: <ProfilePage />,
         },
         {
-          path: "/games/shape-snap",
+          path: "games/shape-snap",
           element: <ShapeSnap />,
         },
       ],
