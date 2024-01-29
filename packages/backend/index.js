@@ -69,3 +69,5 @@ app.listen(PORT, async () => {
     console.log("Db connection is failed ", error);
   }
 });
+
+export default app;
