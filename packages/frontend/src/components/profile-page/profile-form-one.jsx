@@ -1,7 +1,7 @@
 import { Container, PageContainer } from "../utils/containers";
 import { FormGroup, FormFloatingInput, FormInput } from "../utils/form";
 
-export const ProfileFormOne = ({ handleChange, getUser }) => {
+export const ProfileFormOne = ({ handleChange, getUser, handleSubmit }) => {
     return (
         <Container nameID='profile-form-one-cont' flex size='size' classes='flex-column pe-1 mt-1' justify='center' align='content-end'>
         <FormGroup nameID='profile-form-one-form' classes='flex-column' justify='start' align='center' width='90%' onSubmit={ handleSubmit }>
