@@ -1,6 +1,6 @@
-import { PageContainer } from '../../components/utils/containers';
-import { FormGroup, FormFloatingInput, FormInput } from '../../components/utils/form';
-import { SVGLink } from '../../components/utils/svg-link';
+import { PageContainer } from '../utils/containers';
+import { FormGroup, FormFloatingInput, FormInput } from '../utils/form';
+import { SVGLink } from '../utils/svg-link';
 import { navigateTo } from '../../hooks/location-path-hooks';
 import { ReactComponent as ArrowRight } from '../../assets/svg/arrow-right.svg'
 
@@ -8,7 +8,7 @@ const RegisterPage = ({ handleChange, getUser }) => {
 
     return (
           <PageContainer nameID='register-page-cont' flex size='size' classes='flex-column' justify='center' align='center'>
-            <FormGroup nameID='register-page-form' classes='flex-column' justify='center' align='center' width='50%' onSubmit={ navigateTo('/register-child') } >
+            <FormGroup nameID='register-page-form' classes='flex-column register-form' justify='center' align='center' onSubmit={ navigateTo('/register-child') } >
             <FormFloatingInput nameID='register-page-name' type='text' value={ getUser?.name } placeholder='Enter parents name' label='Name' inputName='name' handleChange={ handleChange }/>
             <FormFloatingInput nameID='register-page-surname' type='text' value={ getUser?.surname } placeholder='Enter parents surname' label='Surname' inputName='surname' handleChange={ handleChange }/>
             <FormFloatingInput nameID='register-page-username' type='text' value={ getUser?.username } placeholder='Enter your username here' label='Username' inputName='username' handleChange={ handleChange }/>

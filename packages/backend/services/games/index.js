@@ -2,6 +2,7 @@ import express from "express";
 import GamesModel from "./schema.js";
 import AssetsModel from "../assets/game-assets/schema.js";
 import { ObjectId } from "mongodb";
+import { JwtMiddleware } from "../utils/jwt.js";
 
 const gamesRouter = express.Router();
 
@@ -55,7 +56,7 @@ gamesRouter.post(
 
 gamesRouter.get(
   "/single/:gameCode/:index",
-//   JwtMiddleware,
+  JwtMiddleware,
   async (req, res, next) => {
     try {
       const gameCode = req.params.gameCode
@@ -81,13 +82,7 @@ gamesRouter.get(
 
         },
 ]
-      
-      //   options: {
-      //     sort: "gameAssets.gameCode",
-      //     skip: index ? (4*index) : null,
-      //     limit: index ? 4 : null,
-        
-      // }
+    
       }
       )
       console.log(games)

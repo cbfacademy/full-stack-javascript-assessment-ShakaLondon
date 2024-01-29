@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+    #profile-page {
+        overflow-y: scroll !important;
+    }
+
+    #profile-form-one-cont {
+        padding: 0 0 0;
+        align-content: center;
+    }
+
+    #profile-form-two-cont {
+        padding: 2rem 0 0;
+        align-content: center;
+    }
+
+}

@@ -1,0 +1,11 @@
+.register-form {
+    width: 40%;
+    min-width: 15rem;
+    max-width: 400px;
+}
+
+.profile-header-avatar {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}

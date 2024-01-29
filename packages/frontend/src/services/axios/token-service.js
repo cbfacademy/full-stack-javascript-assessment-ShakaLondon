@@ -25,6 +25,8 @@ const getLocalRefreshToken = () => {
   const removeUser = () => {
     localStorage.removeItem("user");
   };
+
+  const checkCredentials = () => {};
   
   const tokenService = {
     getLocalRefreshToken,
@@ -33,6 +35,7 @@ const getLocalRefreshToken = () => {
     getUser,
     setUser,
     removeUser,
+    checkCredentials,
   };
   
   export default tokenService;

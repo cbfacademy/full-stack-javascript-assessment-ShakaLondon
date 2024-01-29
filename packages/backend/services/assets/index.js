@@ -3,7 +3,9 @@ import multer from "multer";
 import AssetsModel from "./schema.js";
 import GameAssetsModel from "./game-assets/schema.js";
 import UserImageModel from "./user-image/schema.js";
+import UserModel from "../users/schema.js";
 import { storage } from "../utils/cloudinary.js";
+import { JwtMiddleware } from "../utils/jwt.js";
 
 const assetsRouter = express.Router();
 
@@ -13,7 +15,7 @@ const parseFile = multer({ storage });
 // UPLOADIMAGE ✅
 assetsRouter.post(
   "/upload/:objectType",
-//   JwtMiddleware,
+  JwtMiddleware,
   parseFile.single("image"),
   async (req, res, next) => {
     try {
@@ -25,6 +27,7 @@ assetsRouter.post(
             imageName: req.body.imageName,
             imagePath: req.file.path,
             imageTag: req.body.imageTag,
+            userID: req.user?._id,
         }).save();
         return objectResult
     }
@@ -34,10 +37,11 @@ assetsRouter.post(
             imageName: req.body.imageName,
             imagePath: req.file.path,
             imageTag: req.body.imageTag,
+            imageType: objectType,
             sourceID: object._id,
-            dragLocation: req.body.dragLocation,
-            dragSourcePath: req.body.dragSourcePath,
-            dropSourcePath: req.body.dropSourcePath
+            dragLocation: req.body?.dragLocation,
+            dragSourcePath: req.body?.dragSourcePath,
+            dropSourcePath: req.body?.dropSourcePath
         }).save();
 
         const objectResult = await model.findByIdAndUpdate(object._id, { imageID: imageResult._id }, {
@@ -47,6 +51,17 @@ assetsRouter.post(
         return objectResult
     }
 
+    const updatedUserImage = async ( object, user ) => { 
+      const imageResult = await AssetsModel.findByIdAndUpdate( user.avatar._id, { imagePath: req.file.path, sourceID: object._id }, {
+          new: true,
+          runValidators: true,
+          });
+
+      console.log(imageResult, '3')
+
+      return imageResult
+  }
+
         switch (objectType) {
             case "GameAssets":
                 const lettersObject = await createObjectItem( GameAssetsModel )
@@ -55,8 +70,9 @@ assetsRouter.post(
                 break;
             case "UserImage":
                 const usersObject = await createObjectItem( UserImageModel )
-                const usersImage = await uploadedImageItem( UserImageModel, usersObject )
-                res.status(200).send(usersImage);
+                const usersImage = await updatedUserImage( usersObject, req.user )
+                const user = await UserModel.findById( req.user._id ).populate(["gameRecords", "avatar", "avatar.sourceID"]);
+                res.status(200).send({ user: user });
                 break;
         
             default:
@@ -71,7 +87,7 @@ assetsRouter.post(
 // UPDATE OBJECT WITH NEW IMAGE ✅
 assetsRouter.post(
     "/update/assets/:objectType/:_id",
-  //   JwtMiddleware,
+    JwtMiddleware,
     parseFile.single("image"),
     async (req, res, next) => {
       try {
@@ -117,7 +133,7 @@ assetsRouter.post(
     // GET USER IMAGE ✅
 assetsRouter.get(
   "/get/UserImage/:_id",
-//   JwtMiddleware,
+  JwtMiddleware,
   parseFile.single("image"),
   async (req, res, next) => {
     try {
@@ -141,7 +157,7 @@ assetsRouter.get(
   // DELETE USER IMAGE ✅
 assetsRouter.delete(
   "/delete/UserImage/:_id",
-//   JwtMiddleware,
+  JwtMiddleware,
   parseFile.single("image"),
   async (req, res, next) => {
     try {

@@ -1,7 +1,7 @@
 form {
     width: 100%;
-    min-width: 400px;
-    max-width: 8rem;
+    min-width: 20rem;
+    max-width: 100%;
 }
 
 .input-text {
@@ -75,4 +75,15 @@ input[type="submit" i]:hover, input[type="submit" i]:focus {
   
   input[type="submit" i]:not(:disabled):not(.disabled) {
     cursor: pointer;
+  }
+
+  #login-page-register-box {
+    min-width: 400px !important;
+    max-width: 8rem !important;
+  }
+
+  .file-upload-input{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
   }

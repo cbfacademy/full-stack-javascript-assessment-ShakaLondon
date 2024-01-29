@@ -1,6 +1,6 @@
 import axiosInstance from "./api";
 import TokenService from "./tokenService";
-import { logoutAction, refreshToken } from "../redux/actions/auth.js";
+import { logout } from "../../redux/slices/user-state-slice.js";
 
 
 const setup = (store) => {
@@ -54,7 +54,7 @@ const setup = (store) => {
         if (err.response.status === 403) 
         {
           try {
-            dispatch(logoutAction());
+            dispatch(logout());
             TokenService.removeUser();
 
             return Promise.reject(err);

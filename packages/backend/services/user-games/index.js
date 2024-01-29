@@ -1,13 +1,14 @@
 import express from "express";
 import UserGamesModel from "./schema.js"
 import UserModel from "../users/schema.js"
+import { JwtMiddleware } from "../utils/jwt.js";
 
 const userGamesRouter = express.Router();
 
 // UPDATE USER GAMES ✅
 userGamesRouter.post(
     "/update/:id",
-  //   JwtMiddleware,
+    JwtMiddleware,
     async (req, res, next) => {
       try {
         const games = await GamesModel.findByIdAndUpdate( record, {
@@ -24,7 +25,7 @@ userGamesRouter.post(
 // CREATE USER GAMES ✅
 userGamesRouter.post(
   "/create",
-//   JwtMiddleware,
+  JwtMiddleware,
   async (req, res, next) => {
     try {
         const { user, game, complete } = req.body

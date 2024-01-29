@@ -39,7 +39,6 @@ export async function JwtMiddleware(req, res, next) {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         if (decoded) {
-          const role = req.body.role;
 
             const user = await UserModel.findById(decoded.id);
 

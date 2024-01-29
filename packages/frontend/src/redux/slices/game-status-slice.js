@@ -92,6 +92,6 @@ const initialState = {
     },
   })
 
-export const { menuOpen, profileOpen, updateGameRecords } = gameSlice.actions 
+export const { gameAssets, complete, score, updateGameRecords } = gameSlice.actions 
 
 export default gameSlice.reducer
