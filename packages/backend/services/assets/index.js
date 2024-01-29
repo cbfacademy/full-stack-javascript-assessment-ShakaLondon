@@ -47,6 +47,17 @@ assetsRouter.post(
         return objectResult
     }
 
+    const updatedUserImage = async ( object, user ) => { 
+      const imageResult = await AssetsModel.findByIdAndUpdate( user.avatar._id, { imagePath: req.file.path, sourceID: object._id }, {
+          new: true,
+          runValidators: true,
+          });
+
+      console.log(imageResult, '3')
+
+      return imageResult
+  }
+
         switch (objectType) {
             case "GameAssets":
                 const lettersObject = await createObjectItem( GameAssetsModel )
