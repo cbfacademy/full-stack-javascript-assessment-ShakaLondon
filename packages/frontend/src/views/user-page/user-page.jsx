@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ViewPage } from '../../components/utils/pages'
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogin, userRegister } from '../../redux/slices/user-state-slice';
-import { usePathString } from '../../hooks/location-path-hooks';
+import { navigateTo, usePathString } from '../../hooks/location-path-hooks';
 import RegisterPage from '../../components/user-page/register-page';
 import LoginPage from '../../components/user-page/login-page';
 import RegisterChildPage from '../../components/user-page/register-child-page';
@@ -29,9 +29,11 @@ const UserPage = () => {
             switch (path) {
                 case "register-child":
                     appDispatch(userRegister( getUser ))
+                    return navigateTo('profile')
                     break;
                 case "login":
                     appDispatch(userLogin({ email: getUser.email, password: getUser.password}))
+                    return navigateTo('profile')
                     break;
                 default:
                     break;
