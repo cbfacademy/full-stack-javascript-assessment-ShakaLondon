@@ -14,7 +14,7 @@ const AssetsSchema = new Schema(
     },
     imageTag: {
       type: String,
-      required: true,
+      // required: true,
     },
     imageType: {
       type: String,
