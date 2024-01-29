@@ -1,0 +1,7 @@
+.view-page {
+    min-width: 100vw;
+    min-height: 100vh;
+    /* overflow-x: hidden !important; */
+    overflow-y: hidden !important;
+    flex-direction: column;
+}
