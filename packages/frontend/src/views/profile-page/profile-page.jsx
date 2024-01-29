@@ -30,6 +30,20 @@ const ProfilePage = () => {
       avatar: userState?.avatar.imagePath,
     });
 
+    const [image, setImage] = useState({
+    });
+
+    useEffect(() => {
+        appDispatch(profileOpen(true))
+    }, [])
+
+    useEffect(() => {
+  
+      return () => {
+        appDispatch(profileOpen(false))
+      }
+    }, [])
+
   if (!loggedInState) { 
     appDispatch(profileOpen(false))
     return navigateTo('login')
