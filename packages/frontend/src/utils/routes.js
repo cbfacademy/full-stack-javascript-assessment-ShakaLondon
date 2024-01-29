@@ -5,7 +5,6 @@ import LandingPage from '../views/landing-page/landing-page';
 import ProfilePage from '../views/profile-page/profile-page';
 import ShapeSnap from '../views/games/shape-snap/shape-snap';
 import UserPage from '../views/user-page/user-page';
-import { Navbar } from '../components/navbar';
 
 export const router = createBrowserRouter([
     {

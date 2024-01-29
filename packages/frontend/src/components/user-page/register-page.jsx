@@ -1,5 +1,5 @@
 import { PageContainer } from '../utils/containers';
-import { FormGroup, FormFloatingInput, FormInput } from '../utils/form';
+import { FormGroup, FormFloatingInput } from '../utils/form';
 import { SVGLink } from '../utils/svg-link';
 import { navigateTo } from '../../hooks/location-path-hooks';
 import { ReactComponent as ArrowRight } from '../../assets/svg/arrow-right.svg'
