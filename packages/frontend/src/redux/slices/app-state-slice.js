@@ -12,7 +12,7 @@ const initialState = {
     initialState,
     reducers: {
       menuOpen: ( state, action ) => {
-        state.menuOpen = !state.menuOpen
+        state.menuOpen = action.payload
       },
       profileOpen: ( state, action ) => {
         state.profileOpen = action.payload
