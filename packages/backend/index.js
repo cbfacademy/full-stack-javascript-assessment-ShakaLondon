@@ -70,4 +70,6 @@ app.listen(PORT, async () => {
   }
 });
 
-export default app;
+// export default app;
+
+module.exports = app;
