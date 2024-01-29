@@ -35,4 +35,5 @@ const App = () => {
   );
 }
 
-export default App;
+// export default App;
+module.exports = app
