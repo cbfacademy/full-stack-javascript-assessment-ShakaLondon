@@ -72,7 +72,8 @@ const initialState = {
     },
     extraReducers: (builder) => {
       builder.addCase(getCurrentGame.fulfilled, (state, action) => {
-        state.game = { ...state.game, game: action.payload, gameAssets: action.payload.gameAssets }
+        state.game = action.payload 
+        state.gameAssets = action.payload.gameAssets
         // state.user = { ...state.user, gameRecords: [...state.user.gameRecords, action.payload]}
       })
     .addCase(getGameScore.fulfilled, (state, action) => {

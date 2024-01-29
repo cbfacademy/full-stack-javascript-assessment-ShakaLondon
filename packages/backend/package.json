@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "start": "nodemon -r dotenv/config index.js",
-    "dev": "nodemon -r dotenv/config index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vercel/node": "^3.0.17",
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
