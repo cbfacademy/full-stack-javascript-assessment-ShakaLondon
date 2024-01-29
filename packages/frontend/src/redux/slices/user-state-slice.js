@@ -1,8 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import userAuth from '../../services/user/user-auth'
 import tokenService from '../../services/axios/token-service'
-import { navigateTo } from '../../hooks/location-path-hooks'
-import { getCurrentGame } from './game-status-slice'
 import userData from '../../services/user/user-data'
 
 const initialState = {

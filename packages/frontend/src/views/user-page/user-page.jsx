@@ -22,7 +22,7 @@ const UserPage = () => {
         const path = usePathString()
   
       const appDispatch = useDispatch()
-      const loggedInState = useSelector((state) => state.userState.loggedIn)
+    //   const loggedInState = useSelector((state) => state.userState.loggedIn)
   
       const handleSubmit = async (e) => {
             e.preventDefault();
@@ -30,11 +30,11 @@ const UserPage = () => {
                 case "register-child":
                     appDispatch(userRegister( getUser ))
                     return navigateTo('profile')
-                    break;
+                    // break;
                 case "login":
                     appDispatch(userLogin({ email: getUser.email, password: getUser.password}))
                     return navigateTo('profile')
-                    break;
+                    // break;
                 default:
                     break;
             }
