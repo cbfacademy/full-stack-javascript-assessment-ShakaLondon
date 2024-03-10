@@ -35,14 +35,14 @@ const ProfilePage = () => {
 
     useEffect(() => {
         appDispatch(profileOpen(true))
-    }, [])
+    }, [appDispatch])
 
     useEffect(() => {
   
       return () => {
         appDispatch(profileOpen(false))
       }
-    }, [])
+    }, [appDispatch])
 
   if (!loggedInState) { 
     appDispatch(profileOpen(false))
