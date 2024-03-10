@@ -10,6 +10,7 @@
 
 # production
 /build
+.amplify-hosting
 
 # misc
 .DS_Store
