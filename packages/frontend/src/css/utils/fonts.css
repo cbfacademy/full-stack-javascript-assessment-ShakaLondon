@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Dash Horizon';
-    src: url('../../assets/fonts/dash-font/fonts/Dash-Horizon-Demo.eot');
-    src: url('../../assets/fonts/dash-font/fonts/Dash-Horizon-Demo.eot?#iefix') format('embedded-opentype'),
-         url('../../assets/fonts/dash-font/fonts/Dash-Horizon-Demo.woff2') format('woff2'),
-         url('../../assets/fonts/dash-font/fonts/Dash-Horizon-Demo.woff') format('woff'),
-         url('../../assets/fonts/dash-font/fonts/Dash-Horizon-Demo.otf')  format('truetype'),
-         url('../../assets/fonts/dash-font/fonts/Dash-Horizon-Demo.svg#Dash Horizon') format('svg');
-}
