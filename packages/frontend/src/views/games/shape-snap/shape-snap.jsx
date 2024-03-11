@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 import { Container, PageContainerRef } from "../../../components/utils/containers";
 import { ViewPage } from "../../../components/utils/pages";
 import { DropImage } from '../../../components/draggables/drop-image';
-import { dragItemTypes } from '../../../hooks/drag-hooks'
 import { getCurrentGame, updateGameRecords } from "../../../redux/slices/game-status-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { loading } from "../../../redux/slices/app-state-slice";
@@ -14,7 +13,7 @@ const ShapeSnap = () => {
     const appDispatch = useDispatch()
     const loadingState = useSelector((state) => state.appState.loading )
     const gameAssetsState = useSelector((state) => state.gameState.gameAssets )
-    // console.log(shapesState)
+ 
     const [itemTypes, setItemTypes] = useState( null )
     const [itemSize, setItemSize] = useState( null )
 
